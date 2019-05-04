@@ -1,0 +1,23 @@
+* Embedded Tests
+
+** What?
+This repo was for me to explore the ideas of embedded *Julia* and *Common*
+*Lisp*. Well A little bit more complex than that. You see I wanted these
+languages to also to make use of *C++* libraries that I write. Well
+with one exception. There are two *Common Lisp* directories: *ecl*
+and *sbcl*. The later *sbcl* is not actually embeddable, but would be
+preferred to *ecl*. That was me exploring the idea of writing the
+executable itself in *sbcl* so that I could use it as the scripting
+language. However, this was decided against due to being unable to
+cross-compile architecture for it.
+
+** Why?
+These examples were useful so that I could explore using a scripting
+language that I am comfortable with in a cross-platform compatible
+environment. My end goal is to use these examples to use these for a
+game engine. However, this concept could easily be extended to many
+different use cases.
+
+** Stuff to Finish
+- Make it so *ecl* and *sbcl* have a README
+- Make it so *ecl* has a build system

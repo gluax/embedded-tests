@@ -1,0 +1,29 @@
+* Embedded Julia and Then Some
+
+** Requirements
+- *[[https://julialang.org/][Julia]]* Version >= 0.7.0
+- *g++* (I am using *C++* 20 in the makefile but its not needed for this example)
+- *cmake* Version >= 3.5(this may switch to bazel in the future)
+- *[[https://github.com/JuliaInterop/CxxWrap.jl][CxxWrap]]* (a *Julia* Package)
+
+** The Main Executable
+The [[file:main.cc][main.cc]] *C++* file here is a simple executable designed to load a
+*Julia* file called [[file:main.jl][main.jl]]. By loading the default module in there we can load a
+function /hello/. You will notice some other strange code in the *Julia**
+script which will be explained in the Julia section.
+
+** The Main Julia Script and Library
+The [[file:main.jl][main.jl]] file has some basic example Julia syntax in the
+file. However, this is with the exception of the *CxxWrap* module. What
+this does is loads a shared library generated from the [[file:exlib/hello.cc][exlib/hello.cc]]
+file. That file has a simple function /greet/ that returns a
+string. Then with the **CxxWrap* we expose the function to
+*Julia*. Thus the first few lines of our script is us loading the
+library and wrapping it. Using a static library would be preferred but
+for now that does not seem like a possibility.
+
+** Build Instructions
+Modifying the line in the *cmake* file where we set /JlCxx_DIR/ to the
+directory where you have your *Julia* packages installed but keep the
+same pointer to the *cmake* files. Then simply run cmake and the make
+commands to generate the necessary files.
