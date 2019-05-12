@@ -2,4 +2,4 @@
   (if (< n 2) n
       (+ (fib (- n 1)) (fib (- n 2)))))
 
-(princ (fib 8))
+(format t "~d" (fib 8))

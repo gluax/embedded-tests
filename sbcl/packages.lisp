@@ -1,4 +1,4 @@
 (defpackage #:tools
-  (:use #:cl)
+  (:use #:cl #:cffi)
   (:export #:main))
 

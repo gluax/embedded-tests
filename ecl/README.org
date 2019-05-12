@@ -1,0 +1,39 @@
+* Embedded Common Lisp and Then Some
+
+** Requirements
+- *[[https://gitlab.com/embeddable-common-lisp/ecl][ECL]]* 
+- *g++* (I am using *C++* 20 in the makefile but its not needed)
+- *[[https://github.com/fare/asdf][asdf]]* A *CL* build system. Version >= 3.0.0
+- *[[https://www.quicklisp.org/beta/][Quicklisp]]* A package installer for CL.
+- *[[https://github.com/cffi/cffi][cffi]]* A *CL* package.
+- *[[https://common-lisp.net/project/asdf/uiop.html][uiop]]* A *CL* package(part of *asdf*).
+
+** The Main Executable
+The [[file:main.cc][main.cc]] *C++* file here is a simple executable designed to load a
+*ECL* lisp file [[file:main.jl][entry.lisp]]. 
+
+** The Main Julia Script and Library
+The [[file:main.jl][entry.lisp]] file has some basic example *CL* syntax in the
+file. There is a file [[file:exlib/hello-lisp.lisp][exlib/hello-lisp.lisp]] that loads a *C++*
+library. This library is a bit tricky, and this is due to *cffi* only
+being able to interface with *C*. As such we have our *C++* code in
+[[file:exlib/hello.cc][exlib/hello.cc]] and [[file:exlib/hello.hh][exlib/hello.hh]]. This code is pretty standard, but
+then we have the files [[file:exlib/chello.cc][exlib/chello.cc]] and [[file:exlib/chello.h][exlib/chello.h]]. The later
+is a *C* header file to define functions. While the former is used to
+actually define those functions in ways that are idiosyncratic to
+*C*. This allows us to call those functions that map to our class
+functions.
+
+** Issues
+I am really not sure why but when building the ecl concatenated
+version of the [[file:exlib/hello-lisp.lisp][exlib/hello-lisp.lisp]] there are no issues. However,
+when trying to load the file itself it fails because it can not find
+the package *uiop* which should be part of *asdf*. Despite having
+*uiop* in the /depends-on/ flag of build system. As such this project
+is a failure.
+
+** Build Instructions
+There is a Makefile in the exlib folder as well as the main ecl
+directory. Just running make in each will build all things necessary
+for each part. Although do read the issues section as the lisp file
+fails to run.

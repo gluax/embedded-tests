@@ -2,9 +2,9 @@
 
 ** Requirements
 - *[[https://julialang.org/][Julia]]* Version >= 0.7.0
-- *g++* (I am using *C++* 20 in the makefile but its not needed for this example)
+- *g++* (I am using *C++* 20 in the cmake file but its not needed for this example)
 - *cmake* Version >= 3.5(this may switch to bazel in the future)
-- *[[https://github.com/JuliaInterop/CxxWrap.jl][CxxWrap]]* (a *Julia* Package)
+- *[[https://github.com/JuliaInterop/CxxWrap.jl][CxxWrap]]* A *Julia* package.
 
 ** The Main Executable
 The [[file:main.cc][main.cc]] *C++* file here is a simple executable designed to load a

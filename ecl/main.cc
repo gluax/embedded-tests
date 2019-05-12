@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
   // ecl_init_module(NULL, init_lib_HELLO_LISP);
   
   cout << "Hello C++ Main~" << endl;
-  cl_object result = cl_eval(c_string_to_object("(load #P\"./hello-lisp.lisp\")"));
+  cl_object result = cl_eval(c_string_to_object("(load #P\"./entry.lisp\")"));
   // ecl_print(result, ECL_T);
   
   ecl_terpri(ECL_T);

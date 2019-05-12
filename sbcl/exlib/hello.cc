@@ -1,12 +1,13 @@
-#include <string>
-#include <jlcxx/jlcxx.hpp>
+#include "hello.hh"
 
-std::string greet()
-{
-   return "hello, world";
+Hello::Hello(std::string who) {
+  this->who = who;
+}
+  
+Hello::~Hello() {
+    
 }
 
-JLCXX_MODULE define_julia_module(jlcxx::Module& mod)
-{
-  mod.method("greet", &greet);
+std::string Hello::greet() {
+  return "hello, " + this->who;
 }
