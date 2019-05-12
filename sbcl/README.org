@@ -1,8 +1,8 @@
 * SBCL Common Lisp
 
 ** Requirements
-- *[[https://github.com/sbcl/sbcl][SBCL]]* (Compiled using special flags see below.) 
-- *g++* (I am using *C++* 20 in the makefile but its not needed)
+- *[[https://github.com/sbcl/sbcl][SBCL]]* (Compiled using special flags see below.)
+- *g++* (I am using *C++* 17 in the makefile but its not needed)
 - *[[https://github.com/fare/asdf][asdf]]* A *CL* build system. Version >= 3.0.0
 - *[[https://www.quicklisp.org/beta/][Quicklisp]]* A package installer for CL.
 - *[[https://github.com/cffi/cffi][cffi]]* A *CL* package.
@@ -11,13 +11,13 @@
 ** The Main Executable
 The [[file:hello-lisp.lisp][hello-lisp.lisp]] *CL* file here is a simple executable written to
 be an executable. The entrypoint of this file is the /main/ function.
-With this approach we can compile all the lisp code we write or on
-the fly load lisp files like a true scripting language. This file
-demos both.
+With this approach we can compile all the lisp code we write or on the
+fly load lisp files like a true scripting language. This file demos
+both.
 
 ** The Library
-This library is a bit tricky, and this is due to *cffi* only
-being able to interface with *C*. As such we have our *C++* code in
+This library is a bit tricky, and this is due to *cffi* only being
+able to interface with *C*. As such we have our *C++* code in
 [[file:exlib/hello.cc][exlib/hello.cc]] and [[file:exlib/hello.hh][exlib/hello.hh]]. This code is pretty standard, but
 then we have the files [[file:exlib/chello.cc][exlib/chello.cc]] and [[file:exlib/chello.h][exlib/chello.h]]. The later
 is a *C* header file to define functions. While the former is used to
@@ -30,14 +30,19 @@ Sadly we can not cross compile due to the nature of lisp. Meaning if I
 compile this on Linux I can not generate an excutable for Windows.
 
 ** Build Instructions For SBCL
-I compiled *SBCL* with some special flags to help better accomplish
-my goals. To do so I cloned the repo linked above and compiled with
-the following command: /make.sh --prefix=$HOME/.local
---with-sb-linkable-runtime --with-sb-dynamic-core --fancy
---with-sb-core-compression --with-sb-xref-for-internals/.
+I compiled *SBCL* with some special flags to help better accomplish my
+goals. To do so I cloned the repo linked above and compiled with the
+following command: *make.sh --prefix=$HOME/.local*
+*--with-sb-linkable-runtime --with-sb-dynamic-core --fancy*
+*--with-sb-core-compression --with-sb-xref-for-internals*. To do so
+you must already have an instalce of *SBCL* installed. Then you need
+to run the /install.sh/ script which will put binary in the /bin/
+directory of the prefix location.
 
 ** Build Instructions For Executable and Library
-There is a Makefile in the exlib folder as well as the main ecl
-directory. Just running make in each will build all things necessary
-for each part. This will be converted to a cmake or bazel build file
-shortly.
+Make sure to have read the *above section*, and to be using that
+compile version of *SBCL*.Then make sure to have installed *Quicklisp*
+and the other package dependencies listed at the top. There is a
+Makefile in the exlib folder as well as the main sbcl directory. Just
+running make in each will build all things necessary for each part.
+This will be converted to a cmake or bazel build file shortly.

@@ -2,7 +2,7 @@
 
 ** Requirements
 - *[[https://gitlab.com/embeddable-common-lisp/ecl][ECL]]* 
-- *g++* (I am using *C++* 20 in the makefile but its not needed)
+- *g++* (I am using *C++* 17 in the makefile but its not needed)
 - *[[https://github.com/fare/asdf][asdf]]* A *CL* build system. Version >= 3.0.0
 - *[[https://www.quicklisp.org/beta/][Quicklisp]]* A package installer for CL.
 - *[[https://github.com/cffi/cffi][cffi]]* A *CL* package.
