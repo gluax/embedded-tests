@@ -27,7 +27,7 @@ functions.
 
 ** Issues
 Sadly we can not cross compile due to the nature of lisp. Meaning if I
-compile this on Linux I can not generate an excutable for Windows.
+compile this on Linux I can not generate an executable for Windows.
 
 ** Build Instructions For SBCL
 I compiled *SBCL* with some special flags to help better accomplish my
@@ -35,7 +35,7 @@ goals. To do so I cloned the repo linked above and compiled with the
 following command: *make.sh --prefix=$HOME/.local*
 *--with-sb-linkable-runtime --with-sb-dynamic-core --fancy*
 *--with-sb-core-compression --with-sb-xref-for-internals*. To do so
-you must already have an instalce of *SBCL* installed. Then you need
+you must already have an instance of *SBCL* installed. Then you need
 to run the /install.sh/ script which will put binary in the /bin/
 directory of the prefix location.
 
