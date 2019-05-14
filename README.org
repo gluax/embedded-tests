@@ -17,3 +17,8 @@ language that I am comfortable with in a cross-platform compatible
 environment. My end goal is to use these examples to use these for a
 game engine. However, this concept could easily be extended to many
 different use cases.
+
+** Sub Dirs
+- [[file:ecl/README.org][ecl readme]]
+- [[file:julia/README.org][julia readme]]
+- [[file:sbcl/README.org][sbcl readme]]
