@@ -2,23 +2,23 @@
 
 ** What?
 This repo was for me to explore the ideas of embedded *Julia* and *Common*
-*Lisp*. Well A little bit more complex than that. You see I wanted these
-languages to also to make use of *C++* libraries that I write. Well
-with one exception. There are two *Common Lisp* directories: *ecl*
-and *sbcl*. The later *sbcl* is not actually embeddable, but would be
-preferred to *ecl*. That was me exploring the idea of writing the
+*Lisp*. Well A little bit more complex than that
+languages to also to make use of *C++* libraries that I write
+with one exception
+and *sbcl*
+preferred to *ecl*
 executable itself in *sbcl* so that I could use it as the scripting
-language. SBCL was decided upon in the end due to the speed of it and
-due to the issues I ran into with *ecl*.
+language
+due to the issues I ran into with *ecl*
 
 ** Why?
 These examples were useful so that I could explore using a scripting
 language that I am comfortable with in a cross-platform compatible
-environment. My end goal is to use these examples to use these for a
-game engine. However, this concept could easily be extended to many
-different use cases.
+environment
+game engine
+different use cases
 
 ** Sub Dirs
-- [[file:ecl/README.org][ecl readme]]
-- [[file:julia/README.org][julia readme]]
-- [[file:sbcl/README.org][sbcl readme]]
+- [[file:ecl/README
+- [[file:julia/README
+- [[file:sbcl/README
